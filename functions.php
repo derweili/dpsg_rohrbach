@@ -50,7 +50,8 @@ function dpsg_rohrbach_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary Menu', 'dpsg_rohrbach' ),
+		'meta_nav' => esc_html__( 'Meta Menu', 'dpsg_rohrbach' ),
+		'main_nav' => esc_html__( 'Main Menu', 'dpsg_rohrbach' ),
 	) );
 
 	/*
@@ -86,12 +87,39 @@ add_action( 'after_setup_theme', 'dpsg_rohrbach_setup' );
 function dpsg_rohrbach_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'dpsg_rohrbach' ),
-		'id'            => 'sidebar-1',
+		'id'            => 'sidebar-primary',
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
+		'before_title'  => '<h4 class="widget-title">',
+		'after_title'   => '</h4>',
+	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'About', 'dpsg_rohrbach' ),
+		'id'            => 'sidebar-about',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h4 class="widget-title">',
+		'after_title'   => '</h4>',
+	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'DPSG', 'dpsg_rohrbach' ),
+		'id'            => 'sidebar-dpsg',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h4 class="widget-title">',
+		'after_title'   => '</h4>',
+	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Stufen', 'dpsg_rohrbach' ),
+		'id'            => 'sidebar-stufen',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h4 class="widget-title">',
+		'after_title'   => '</h4>',
 	) );
 }
 add_action( 'widgets_init', 'dpsg_rohrbach_widgets_init' );
@@ -148,3 +176,7 @@ require get_template_directory() . '/inc/themefunctions.php';
  * Load cleanup file.
  */
 require get_template_directory() . '/inc/clientfriendly.php';
+/**
+ * Load menu config file.
+ */
+require get_template_directory() . '/inc/menu.php';

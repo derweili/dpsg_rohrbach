@@ -19,18 +19,60 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'dpsg_rohrbach' ); ?></a>
-
+	<!--<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'dpsg_rohrbach' ); ?></a>-->
 	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-		</div><!-- .site-branding -->
+	<div class="site-branding row" style="position:relative">
+		<div class="large-3 columns">
+			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php bloginfo('template_directory'); ?>/img/dpsg.svg" width="157" class="headerlogo"></a></h1>
+		</div>
+		<div class="large-9 columns">
+			<h4 class="site-description"><?php bloginfo( 'description' ); ?></h4>
+		</div>
+	    <?php
+	$options = array(
+	  'theme_location' => 'meta_nav',
+	  'container' => false,
+	  'depth' => 1,
+	  'items_wrap' => '<ul id="%1$s" class="top-menu %2$s">%3$s</ul>',
+	);
+	wp_nav_menu($options); ?>
+	</div><!-- .site-branding -->
+	<div class="contain-to-grid"><!-- Add sticky class to make manu "sticky". -->
+		<nav class="top-bar" data-topbar role="navigation">
+		  <ul class="title-area">
+		    <li class="name">
+		    	<a href="#">
+		      		<img src="<?php bloginfo('template_directory'); ?>/img/dpsg-lilie.png">
+		    	</a>
+		    </li>
+		    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+		  </ul>
 
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'dpsg_rohrbach' ); ?></button>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-		</nav><!-- #site-navigation -->
+		  <section class="top-bar-section">
+		    <!-- Right Nav Section -->
+		    <!--<ul class="right">
+		      <li class="active"><a href="#">Right Button Active</a></li>
+		      <li class="has-dropdown">
+		        <a href="#">Right Button with Dropdown</a>
+		        <ul class="dropdown">
+		          <li><a href="#">First link in dropdown</a></li>
+		        </ul>
+		      </li>
+		    </ul>-->
+
+		    <!-- Left Nav Section -->
+		    <?php
+			$options = array(
+			  'theme_location' => 'main_nav',
+			  'container' => false,
+			  'depth' => 5,
+			  'items_wrap' => '<ul id="%1$s" class="left %2$s">%3$s</ul>',
+			  'walker' => new dpsg_rohrbach_walker_nav_menu()
+			);
+			wp_nav_menu($options); ?>
+		  </section>
+		</nav>
+	</div>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

@@ -1,0 +1,175 @@
+@font-face {
+    font-family: "TheSerif";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/TheSerif_4_.eot") format("eot"), url("../fonts/TheSerif_4_.woff") format("woff");
+}
+@font-face {
+    font-family: "TheSerif";
+    font-style: italic;
+    font-weight: normal;
+    src: url("../fonts/TheSerif_4i.eot") format("eot"), url("../fonts/TheSerif_4i.woff") format("woff");
+}
+@font-face {
+    font-family: "TheSerif";
+    font-style: normal;
+    font-weight: bold;
+    src: url("../fonts/TheSerif_7_.eot") format("eot"), url("../fonts/TheSerif_7_.woff") format("woff");
+}
+@font-face {
+    font-family: "TheSerif";
+    font-style: italic;
+    font-weight: bold;
+    src: url("../fonts/TheSerif_7i.eot") format("eot"), url("../fonts/TheSerif_7i.woff") format("woff");
+}
+h1, h2, h3, h4, h4, h5, h6{
+	    font-family: "TheSerif",​serif;
+}
+html, body{
+	background: #f0f4f6;
+}
+.contain-to-grid, .top-bar, .top-bar-section ul li, .top-bar-section li:not(.has-form) a:not(.button){
+	background-color: #003056;
+}
+.top-menu.menu {
+    position: absolute;
+    right: 0.75rem !important;
+}
+.top-menu.menu li{
+	list-style: none;
+	display: inline;
+    background: none repeat scroll 0 0 #4c6e88;
+    color: #ffffff;
+    font-size: 14px;
+    padding: 8px 15px;
+}
+.top-menu.menu li a{
+	color:white;
+}
+.site-description{
+    color: #003056;
+    float: right;
+    font-size: 1.2rem;
+/*    margin-bottom: 5px;
+    margin-top: 5px !important;*/
+    margin-top: 2.5rem;
+}
+.headerlogo{
+	margin: 1rem 0;
+}
+.top-bar .name a{
+	height: 45px;
+	width: 45px;
+	display: block;
+}
+.top-bar .name span{
+	display:none;
+}
+.title-area {
+    height: 45px;
+    width: 45px;
+	display: block;
+}
+.title-area img {
+    margin-left: 5px;
+    margin-top: 8px;
+    width: 30px;
+}
+
+.top-bar-section ul li > a {
+    font-family: "TheSerif",​serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+.left.menu > li{
+	position: relative;
+}
+/*.left.menu > li > a:after{
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	border: 6px solid #fff;
+	content: " ";
+	height: 0;
+	padding: 0;
+	margin: -12px 0 0 -6px;
+	border-left-color: transparent;
+	border-right-color: transparent;
+	border-top-color: transparent;
+}*/
+
+.top-bar-section > ul > li:hover:not(.has-form) > a {
+    background: none repeat scroll 0 0 #003056!important;
+}
+.top-bar-section .dropdown{
+	padding-top: 5px!important;
+	padding-bottom: 5px!important;
+    border-radius: 2px;
+    box-shadow: 0 3px 3px rgba(0, 48, 86, 0.2);
+    background: white!important;
+}
+.top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button){
+	background: white;
+	color: #003056!important;
+}
+.top-bar-section ul.dropdown > li:hover:not(.has-form) > a{
+	background: white!important;
+	color: #b5152b!important;
+	text-decoration: underline!important;
+}
+
+/* Menü enden */
+
+/*Inhalt allgemein */
+#content{
+	margin-top: 1.5rem;
+}
+/* Archiv */
+.entry-title{
+    font-size:33.6px;
+    font-weight: 500;
+    margin: 5px 0;
+}
+.readmore{
+    color: #B5152B;
+}
+article{
+    margin-bottom: 2rem;
+}
+/*Startseite*/
+.boxes-container{
+    margin-top: 1.5rem;
+}
+.startbox h3{
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+/*Sidebar*/
+.widget_nav_menu{
+    background: white;
+    padding: 10px 20px;
+}
+.widget_nav_menu .widget-title{
+    font-family: "TheSerif";
+    font-weight: bold;
+    font-size: 17px;
+    color: #B5152B;
+}
+.widget_nav_menu li{
+    list-style: none;
+    font-family: "TheSerif", serif;
+    font-size: 1.1em;
+}
+.widget_nav_menu .menu {
+    margin-left: 0;
+}
+.widget_nav_menu > div > ul > li:only-child > a{
+    font-family: "TheSerif";
+    font-weight: bold;
+    font-size: 17px;
+    color: #B5152B;
+}
+.widget_nav_menu div ul li ul{
+    margin-left: 0;
+}

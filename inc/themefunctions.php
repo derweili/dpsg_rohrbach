@@ -67,158 +67,20 @@ function my_post_gallery($output, $attr) {
     return $output;
 }
 
-//Post Types hinzufügen
-add_action( 'init', 'jaegersound_register_slider' );
-function jaegersound_register_slider() {
-    $labels = array(
-        "name" => "Slider",
-        "singular_name" => "Slider",
-        );
-
-    $args = array(
-        "labels" => $labels,
-        "description" => "Bilderslider auf der Startseite",
-        "public" => false,
-        "show_ui" => true,
-        "has_archive" => false,
-        "show_in_menu" => true,
-        "exclude_from_search" => true,
-        "capability_type" => "post",
-        "map_meta_cap" => true,
-        "hierarchical" => false,
-        "rewrite" => false,
-        "query_var" => false,
-                        "supports" => array( "title", "thumbnail" ),            );
-    register_post_type( "slider", $args );
-
-// End of cptui_register_my_cpts()
-}
 
 
-//Tadonomie hinzufügen
-add_action( 'init', 'jaegersound_register_technik' );
-function jaegersound_register_technik() {
-
-    $labels = array(
-        "name" => "Technik",
-        "label" => "Technik",
-            );
-
-    $args = array(
-        "labels" => $labels,
-        "hierarchical" => true,
-        "label" => "Technik",
-        "show_ui" => true,
-        "query_var" => true,
-        "rewrite" => array( 'slug' => 'technik', 'with_front' => true ),
-        "show_admin_column" => false,
-    );
-    register_taxonomy( "technik", array( "post" ), $args );
-
-// End cptui_register_my_taxes
-
-}
-
-
-
-
-add_action( 'after_setup_theme', 'jaegersound_theme_setup' );
-function jaegersound_theme_setup() {
-     add_image_size( 'jaegersound-thumb', 640, 427, true ); // 300 pixels wide (and unlimited height)
-     add_image_size( 'jaegersound-medium-thumb', 183, 122, true ); // 300 pixels wide (and unlimited height)
-     add_image_size( 'jaegersound-archive', 610 ); //  pixels wide (and unlimited height)
+/*add_action( 'after_setup_theme', 'dpsg_rohrbach_theme_setup' );
+function dpsg_rohrbach_theme_setup() {
+     add_image_size( 'dpsg_rohrbach-thumb', 640, 427, true ); // 300 pixels wide (and unlimited height)
+     add_image_size( 'dpsg_rohrbach-medium-thumb', 183, 122, true ); // 300 pixels wide (and unlimited height)
+     add_image_size( 'dpsg_rohrbach-archive', 610 ); //  pixels wide (and unlimited height)
 
     }
+*/
 
-
-//Kommentare deaktivieren
-function disable_comments_status()
-    {
-    return false;
-    }
-add_filter('comments_open', 'disable_comments_status', 20, 2);
-add_filter('pings_open', 'disable_comments_status', 20, 2);
-function disable_comments_post_types_support()
-    {
-    $post_types = get_post_types();
-    foreach($post_types as $post_type)
-        {
-        if (post_type_supports($post_type, 'comments'))
-            {
-            remove_post_type_support($post_type, 'comments');
-            remove_post_type_support($post_type, 'trackbacks');
-            }
-        }
-    }
-add_action('admin_init', 'disable_comments_post_types_support');
-function disable_comments_hide_existing_comments($comments)
-    {
-    $comments = array();
-    return $comments;
-    }
-add_filter('comments_array', 'disable_comments_hide_existing_comments', 10, 2);
-function disable_comments_admin_menu()
-    {
-    remove_menu_page('edit-comments.php');
-    }
-add_action('admin_menu', 'disable_comments_admin_menu');
-function disable_menus_admin_bar_render()
-    {
-    global $wp_admin_bar;
-    $wp_admin_bar->remove_menu('comments');
-    }
-add_action('wp_before_admin_bar_render', 'disable_menus_admin_bar_render');
-
-
-
-
-
-//Login Logo
-function my_login_logo() { ?>
-    <style type="text/css">
-        .login h1 a {
-            background-image: url(<?php bloginfo('template_directory'); ?>/img/site-login-logo.png);
-            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/img/site-login-logo.svg);
-            padding-bottom: 0px;
-            margin-bottom: 0;
-        }
-    </style>
-<?php }
-add_action( 'login_enqueue_scripts', 'my_login_logo' );
-
-//Remove category base from Permalink http://fastwp.de/3540/
-add_filter( 'category_rewrite_rules', 'filter_category_rewrite_rules' ); 
-function filter_category_rewrite_rules( $rules ) {
- 
-    $categories = get_categories( array( 'hide_empty' => false ) );
- 
-    if ( is_array( $categories ) && ! empty( $categories ) ) {
-        $slugs = array();
- 
-        foreach ( $categories as $category ) {
-            if ( is_object( $category ) && ! is_wp_error( $category ) ) {
-                if ( 0 == $category->category_parent )
-                    $slugs[] = $category->slug;
-                else
-                    $slugs[] = trim( get_category_parents( $category->term_id, false, '/', true ), '/' );
-            }
-        }
- 
-        if ( ! empty( $slugs ) ) {
-            $rules = array();
- 
-            foreach ( $slugs as $slug ) {
-                $rules[ '(' . $slug . ')/feed/(feed|rdf|rss|rss2|atom)?/?$' ] = 'index.php?category_name=$matches[1]&feed=$matches[2]';
-                $rules[ '(' . $slug . ')/(feed|rdf|rss|rss2|atom)/?$' ] = 'index.php?category_name=$matches[1]&feed=$matches[2]';
-                $rules[ '(' . $slug . ')(/page/(\d)+/?)?$' ] = 'index.php?category_name=$matches[1]&paged=$matches[3]';
-            }
-        }
-    }
-    return $rules;
-}
 
 //Register Scripts
-function jaegersound_register_scripts() {
+function dpsg_rohrbach_register_scripts() {
     /*Header Script*/
     wp_register_script( 'modernizr', get_template_directory_uri() . '/js/vendor/modernizr.js', array( 'jquery' ), 1.0);
     wp_register_script( 'jcarousel', get_template_directory_uri() . '/js/jcarousel.min.js', array( 'jquery' ), 1.0, true);
@@ -231,10 +93,10 @@ function jaegersound_register_scripts() {
     wp_register_style( 'theme-css', get_template_directory_uri() . '/css/theme.css', array('foundation'), 1.0, 'screen' );
 }
  
-add_action( 'wp_enqueue_scripts', 'jaegersound_register_scripts' );
+add_action( 'wp_enqueue_scripts', 'dpsg_rohrbach_register_scripts' );
 
 
-function jaegersound_enqueue_scripts() {
+function dpsg_rohrbach_enqueue_scripts() {
     wp_enqueue_script( "jquery" );
     wp_enqueue_script( 'modernizr' );
     wp_enqueue_script( 'jcarousel' );
@@ -247,6 +109,12 @@ function jaegersound_enqueue_scripts() {
     wp_enqueue_style( 'theme-css' );
 }
  
-add_action( 'wp_enqueue_scripts', 'jaegersound_enqueue_scripts' );
+add_action( 'wp_enqueue_scripts', 'dpsg_rohrbach_enqueue_scripts' );
+
+function new_excerpt_more( $more ) {
+    return '';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+
 
 ?>

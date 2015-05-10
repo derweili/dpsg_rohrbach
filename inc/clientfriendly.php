@@ -13,7 +13,6 @@ function remove_dashboard_meta() {
 }
 add_action( 'admin_init', 'remove_dashboard_meta' );
 
-
 add_action( 'wp_dashboard_setup', 'register_my_dashboard_widget' );
 function register_my_dashboard_widget() {
 	wp_add_dashboard_widget(
@@ -155,7 +154,7 @@ add_filter( 'get_search_form', create_function( '$a', "return null;" ) );
 
 //Widgetd deaktivieren
 // unregister all default WP Widgets 
-function unregister_default_wp_widgets() {
+/*function unregister_default_wp_widgets() {
 	unregister_widget('WP_Widget_Pages');
 	unregister_widget('WP_Widget_Calendar');
 	unregister_widget('WP_Widget_Archives');
@@ -170,7 +169,7 @@ function unregister_default_wp_widgets() {
 	unregister_widget('WP_Widget_Tag_Cloud');
 }
 add_action('widgets_init', 'unregister_default_wp_widgets', 1);
-
+*/
 
 
 //Werkzeuglseite

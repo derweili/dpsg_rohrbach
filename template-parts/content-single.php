@@ -6,11 +6,16 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php 
+			if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
+				echo '<a href="' . esc_url( get_permalink() ) . '">';
+				the_post_thumbnail();
+				echo '</a>';
+			} 
+		?>
 
-		<div class="entry-meta">
-			<?php dpsg_rohrbach_posted_on(); ?>
-		</div><!-- .entry-meta -->
+		<?php echo '<h3 class="entry-title">'.get_the_date( 'Y' ) . ' ' . get_the_title() . '</h3>'; ?>
+
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">

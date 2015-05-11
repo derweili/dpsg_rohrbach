@@ -9,7 +9,7 @@
  * Set the content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) ) {
-	$content_width = 640; /* pixels */
+	$content_width = 710; /* pixels */
 }
 
 if ( ! function_exists( 'dpsg_rohrbach_setup' ) ) :
@@ -180,3 +180,4 @@ require get_template_directory() . '/inc/clientfriendly.php';
  * Load menu config file.
  */
 require get_template_directory() . '/inc/menu.php';
+

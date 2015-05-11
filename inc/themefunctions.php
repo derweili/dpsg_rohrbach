@@ -1,5 +1,5 @@
 <?php
-add_filter('post_gallery', 'my_post_gallery', 10, 2); //replace Wordpress Gallery
+/*add_filter('post_gallery', 'my_post_gallery', 10, 2); //replace Wordpress Gallery
 function my_post_gallery($output, $attr) {
     global $post;
 
@@ -66,17 +66,17 @@ function my_post_gallery($output, $attr) {
 
     return $output;
 }
+*/
 
 
-
-/*add_action( 'after_setup_theme', 'dpsg_rohrbach_theme_setup' );
+add_action( 'after_setup_theme', 'dpsg_rohrbach_theme_setup' );
 function dpsg_rohrbach_theme_setup() {
-     add_image_size( 'dpsg_rohrbach-thumb', 640, 427, true ); // 300 pixels wide (and unlimited height)
-     add_image_size( 'dpsg_rohrbach-medium-thumb', 183, 122, true ); // 300 pixels wide (and unlimited height)
-     add_image_size( 'dpsg_rohrbach-archive', 610 ); //  pixels wide (and unlimited height)
+     add_image_size( 'dpsg_rohrbach_slider', 1056, 410, true ); // 300 pixels wide (and unlimited height)
+ //    add_image_size( 'dpsg_rohrbach-medium-thumb', 183, 122, true ); // 300 pixels wide (and unlimited height)
+ //    add_image_size( 'dpsg_rohrbach-archive', 610 ); //  pixels wide (and unlimited height)
 
     }
-*/
+
 
 
 //Register Scripts

@@ -37,11 +37,11 @@
 	);
 	wp_nav_menu($options); ?>
 	</div><!-- .site-branding -->
-	<div class="contain-to-grid"><!-- Add sticky class to make manu "sticky". -->
+	<div class="contain-to-grid sticky"><!-- Add sticky class to make manu "sticky". -->
 		<nav class="top-bar" data-topbar role="navigation">
 		  <ul class="title-area">
 		    <li class="name">
-		    	<a href="#">
+		    	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 		      		<img src="<?php bloginfo('template_directory'); ?>/img/dpsg-lilie.png">
 		    	</a>
 		    </li>

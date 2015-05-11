@@ -60,7 +60,7 @@ function my_post_guidelines() {
 	return;
 	$args = array(
 	'id' => 'my_website_guide',
-	'title' => 'Jaegersound Hilfe',
+	'title' => 'dpsg_rohrbach Hilfe',
 	'content' => '
 	<h3>Referenzen Hilfe</h3>
 	<h4>Einbetten von Bildern und Videos</h4>
@@ -87,7 +87,7 @@ function my_slider_guidelines() {
 	return;
 	$args = array(
 	'id' => 'my_website_guide',
-	'title' => 'Jaegersound Hilfe',
+	'title' => 'dpsg_rohrbach Hilfe',
 	'content' => '
 	<h3>Slider Hilfe</h3>
 	<p>Auf der Startseite befindet sich ein Bilderslider. Die Angezeigen Bilder können hier über das Backend (Menüpunk "Slider") verwaltet werden. Zum Erstellen eines Sliders werden nur 2 Daten benötigt. Zum einen ein Titel, dieser wird jedoch nur Wordpress-Intern zur besseren Verwaltung verwendet und zum anderen das Bild, welches über "Beitragsbild" hinzugefügt wird.</p>
@@ -120,10 +120,10 @@ add_action( 'admin_notices', 'hide_update_notice', 1 );
 
 
 //Dashbord Footer Text
-function jaegersound_footer_text(){
-	echo 'Jaegersound';
+function dpsg_rohrbach_footer_text(){
+	echo 'DPSG Rohrbach';
 }
-add_filter('admin_footer_text', 'jaegersound_footer_text');
+add_filter('admin_footer_text', 'dpsg_rohrbach_footer_text');
 
 /*add_action('admin_head', 'mytheme_remove_help_tabs');//Help deaktivieren
 function mytheme_remove_help_tabs() {

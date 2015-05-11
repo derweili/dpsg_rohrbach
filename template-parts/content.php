@@ -8,7 +8,9 @@
 	<header class="entry-header">
 		<?php 
 			if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
+				echo '<a href="' . get_permalink() . '">';
 				the_post_thumbnail();
+				echo '</a>';
 			} 
 		?>
 		<?php echo '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">'.get_the_date( 'Y' ) . ' ' . get_the_title() . '</a></h3>'; ?>

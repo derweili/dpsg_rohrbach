@@ -180,4 +180,16 @@ require get_template_directory() . '/inc/clientfriendly.php';
  * Load menu config file.
  */
 require get_template_directory() . '/inc/menu.php';
+/**
+ * Load menu config file.
+ */
+require get_template_directory() . '/inc/homeslider.php';
+/**
+ * Load menu config file.
+ */
+require get_template_directory() . '/inc/stufenslider.php';
+/**
+ * Load menu config file.
+ */
+require get_template_directory() . '/inc/metabox.php';
 

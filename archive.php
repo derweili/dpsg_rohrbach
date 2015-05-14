@@ -34,7 +34,7 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php the_posts_navigation(); ?>
+			<?php dpsg_rohrbach_posts_navigation(); ?>
 
 		<?php else : ?>
 

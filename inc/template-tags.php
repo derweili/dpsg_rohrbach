@@ -7,28 +7,28 @@
  * @package dpsg_rohrbach
  */
 
-if ( ! function_exists( 'the_posts_navigation' ) ) :
+if ( ! function_exists( 'dpsg_rohrbach_posts_navigation' ) ) :
 /**
  * Display navigation to next/previous set of posts when applicable.
  *
  * @todo Remove this function when WordPress 4.3 is released.
  */
-function the_posts_navigation() {
+function dpsg_rohrbach_posts_navigation() {
 	// Don't print empty markup if there's only one page.
 	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
 		return;
 	}
 	?>
 	<nav class="navigation posts-navigation" role="navigation">
-		<h2 class="screen-reader-text"><?php esc_html_e( 'Posts navigation', 'dpsg_rohrbach' ); ?></h2>
+		<!--<h2 class="screen-reader-text"><?php esc_html_e( 'Posts navigation', 'dpsg_rohrbach' ); ?></h2>-->
 		<div class="nav-links">
 
 			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( esc_html__( 'Older posts', 'dpsg_rohrbach' ) ); ?></div>
+			<div class="nav-previous button"><?php next_posts_link( esc_html__( 'Ältere Beiträge', 'dpsg_rohrbach' ) ); ?></div>
 			<?php endif; ?>
 
 			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( esc_html__( 'Newer posts', 'dpsg_rohrbach' ) ); ?></div>
+			<div class="nav-next button"><?php previous_posts_link( esc_html__( 'Neuere Beiträge', 'dpsg_rohrbach' ) ); ?></div>
 			<?php endif; ?>
 
 		</div><!-- .nav-links -->
@@ -264,40 +264,3 @@ function dpsg_rohrbach_category_transient_flusher() {
 }
 add_action( 'edit_category', 'dpsg_rohrbach_category_transient_flusher' );
 add_action( 'save_post',     'dpsg_rohrbach_category_transient_flusher' );
-
-if ( ! function_exists( 'dpsg_rohrbach_home_slider' ) ) :
-/**
- * Prints HTML with meta information for the categories, tags and comments.
- */
-function dpsg_rohrbach_home_slider() {
-	// Hide category and tag text for pages.
-	global $post;  
-    $the_query = array(
-      'posts_per_page'   => '3',
-      //'post_type'     => 'post',
-      'orderby'          => 'date',
-      'order'            => 'DESC',
-      'suppress_filters' => false,
-      'meta_key'=>'_thumbnail_id',
-    );
-    $posts = get_posts( $the_query );  
-    if(!empty($posts)):
-		echo '<div class="jcarousel">
-	    	<div class="slides_wrap">';
-
-	    	$postcount = '1';
-	            foreach( $posts as $post ): setup_postdata( $post );
-	            echo '<div class="slide"><a href="' . get_permalink() . '">'.get_the_post_thumbnail( $page->ID, 'dpsg_rohrbach_slider' ).'
-		      		<div class="caption">
-		              <h2>' . get_the_date( 'Y' ) . ' ' . get_the_title() . '</h2>
-		            </div>
-		        </a></div>';
-		        $postcount ++;
-            	endforeach;
-
-		echo '</div>
-		    <div class="jcarousel-pagination"></div>
-		</div>';
-	endif;
-}
-endif;

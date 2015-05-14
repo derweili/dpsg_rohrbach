@@ -116,5 +116,11 @@ function new_excerpt_more( $more ) {
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 
+// URL aus kommentaren entfernen
+function crunchify_disable_comment_url($fields) { 
+    unset($fields['url']);
+    return $fields;
+}
+add_filter('comment_form_default_fields','crunchify_disable_comment_url');
 
 ?>

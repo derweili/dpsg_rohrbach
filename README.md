@@ -1,3 +1,3 @@
 
-DPSG Rohrbach Theme based on underscored
+DPSG Rohrbach Theme based on underscores
 ===
